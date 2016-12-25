@@ -39,10 +39,34 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '/features',
-      name: 'features',
+      path: '/about',
+      name: 'about',
       getComponent(nextState, cb) {
-        System.import('containers/FeaturePage')
+        System.import('containers/AboutPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/services',
+      name: 'services',
+      getComponent(nextState, cb) {
+        System.import('containers/ServicesPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/portfolio',
+      name: 'portfolio',
+      getComponent(nextState, cb) {
+        System.import('containers/PortfolioPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/contact',
+      name: 'contact',
+      getComponent(nextState, cb) {
+        System.import('containers/ContactPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },

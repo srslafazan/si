@@ -10,15 +10,8 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
-import Form from './Form';
 import H2 from 'components/H2';
-import Input from './Input';
-import List from 'components/List';
-import ListItem from 'components/ListItem';
-import LoadingIndicator from 'components/LoadingIndicator';
-import RepoListItem from 'containers/RepoListItem';
 import Section from './Section';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
@@ -37,28 +30,28 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    let mainContent = null;
+    // let mainContent = null;
 
-    // Show a loading indicator when we're loading
-    if (this.props.loading) {
-      mainContent = (<List component={LoadingIndicator} />);
-
-    // Show an error if there is one
-    } else if (this.props.error !== false) {
-      const ErrorComponent = () => (
-        <ListItem item={'Something went wrong, please try again!'} />
-      );
-      mainContent = (<List component={ErrorComponent} />);
-
-    // If we're not loading, don't have an error and there are repos, show the repos
-    } else if (this.props.repos !== false) {
-      mainContent = (<List items={this.props.repos} component={RepoListItem} />);
-    }
+    // // Show a loading indicator when we're loading
+    // if (this.props.loading) {
+    //   mainContent = (<List component={LoadingIndicator} />);
+    //
+    // // Show an error if there is one
+    // } else if (this.props.error !== false) {
+    //   const ErrorComponent = () => (
+    //     <ListItem item={'Something went wrong, please try again!'} />
+    //   );
+    //   mainContent = (<List component={ErrorComponent} />);
+    //
+    // // If we're not loading, don't have an error and there are repos, show the repos
+    // } else if (this.props.repos !== false) {
+    //   mainContent = (<List items={this.props.repos} component={RepoListItem} />);
+    // }
 
     return (
       <article>
         <Helmet
-          title="Home Page"
+          title="Home"
           meta={[
             { name: 'description', content: 'A React.js Boilerplate application homepage' },
           ]}
@@ -73,25 +66,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             </p>
           </CenteredSection>
           <Section>
-            <H2>
-              <FormattedMessage {...messages.trymeHeader} />
-            </H2>
-            <Form onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
-                <AtPrefix>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </AtPrefix>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="mxstbr"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
-                />
-              </label>
-            </Form>
-            {mainContent}
+
           </Section>
         </div>
       </article>
@@ -105,13 +80,8 @@ HomePage.propTypes = {
     React.PropTypes.object,
     React.PropTypes.bool,
   ]),
-  repos: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.bool,
-  ]),
   onSubmitForm: React.PropTypes.func,
   username: React.PropTypes.string,
-  onChangeUsername: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {

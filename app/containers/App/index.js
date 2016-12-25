@@ -14,26 +14,37 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  ${''/* max-width: calc(768px + 16px * 2);*/}
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  ${''/* padding: 0 16px;*/}
   flex-direction: column;
+`;
+
+const ContentWrapper = styled.div`
+  ${''/* max-width: calc(768px + 16px * 2);*/}
+  ${''/* margin: 0 auto;*/}
+  ${''/* display: flex;*/}
+  ${''/* min-height: 100%;*/}
+  padding: 0 32px;
+  ${''/* flex-direction: column;*/}
 `;
 
 function App(props) {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="Scale Innovations - %s"
+        defaultTitle="Scale Innovations"
         meta={[
-          { name: 'description', content: 'A React.js Boilerplate application' },
+          { name: 'description', content: 'Tailor-made technology and digital content solutions' },
         ]}
       />
       <Header />
-      {React.Children.toArray(props.children)}
+      <ContentWrapper>
+        {React.Children.toArray(props.children)}
+      </ContentWrapper>
       <Footer />
     </AppWrapper>
   );

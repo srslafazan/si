@@ -10,8 +10,20 @@ export default defineMessages({
     id: 'boilerplate.components.Header.home',
     defaultMessage: 'Home',
   },
-  features: {
-    id: 'boilerplate.components.Header.features',
-    defaultMessage: 'Features',
+  about: {
+    id: 'boilerplate.components.Header.about',
+    defaultMessage: 'About Us',
+  },
+  services: {
+    id: 'boilerplate.components.Header.services',
+    defaultMessage: 'Services',
+  },
+  portfolio: {
+    id: 'boilerplate.components.Header.portfolio',
+    defaultMessage: 'Portfolio',
+  },
+  contact: {
+    id: 'boilerplate.components.Header.portfolio',
+    defaultMessage: 'Contact',
   },
 });
